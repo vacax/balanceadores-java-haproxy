@@ -26,7 +26,7 @@ public class Main {
         });
 
         //Configurando el manejador de sesion.
-        app.config.sessionHandler(()->Main.fileSessionHandler(app.server().server()));
+        //app.config.sessionHandler(()->Main.fileSessionHandler(app.server().server()));
 
         //iniciando el servidor
         app.start(puerto);
@@ -64,14 +64,11 @@ public class Main {
      */
     public static SessionHandler fileSessionHandler(Server server) {
         SessionHandler sessionHandler = new SessionHandler();
-        DefaultSessionIdManager defaultSessionIdManager = new DefaultSessionIdManager(server);
-        defaultSessionIdManager.setWorkerName("app-web-simple");
-        sessionHandler.setSessionIdManager(defaultSessionIdManager);
-        sessionHandler.setNodeIdInSessionId(true);
-        SessionCache sessionCache = new NullSessionCache(sessionHandler);
+        SessionCache sessionCache = new DefaultSessionCache(sessionHandler);
         sessionCache.setSessionDataStore(fileSessionDataStore());
         sessionHandler.setSessionCache(sessionCache);
         sessionHandler.setHttpOnly(true);
+        // make additional changes to your SessionHandler here
         return sessionHandler;
     }
 

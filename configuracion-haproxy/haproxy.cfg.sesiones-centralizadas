@@ -44,9 +44,9 @@ listen aplicacion_web
         stats realm HAProxy\ Statistics
         stats auth cda:cda
         balance roundrobin
-        #permite etiquetar el servidor que realizo la respuesta.
-	    cookie SERVERID insert indirect nocache
-        server app-01 localhost:7000 check cookie s1
-        server app-02 localhost:7001 check cookie s2
-        server app-03 localhost:7002 check cookie s3
+        #permite mantener la sesion enviada por el servidor.
+        cookie JSESSIONID prefix nocache
+        server app-01 localhost:7000 check
+        server app-02 localhost:7001 check
+        server app-03 localhost:7002 check
 
