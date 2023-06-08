@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.http.*;
+
 
 @SpringBootApplication
 public class AppWebSpringBootApplication {
@@ -17,7 +18,7 @@ public class AppWebSpringBootApplication {
 
     @RestController
     @RequestMapping(path = "/")
-    public class MiControlador{
+    public static class MiControlador{
 
         @GetMapping(path = "/")
         public String index(){

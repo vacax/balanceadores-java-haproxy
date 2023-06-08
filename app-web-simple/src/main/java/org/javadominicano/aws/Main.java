@@ -22,7 +22,7 @@ public class Main {
 
         //subiendo el servidor.
         Javalin app = Javalin.create(config -> {
-            config.addStaticFiles("/publico");
+            config.staticFiles.add("/publico");
         });
 
         //Configurando el manejador de sesion.
@@ -49,7 +49,7 @@ public class Main {
             contador++;
             ctx.sessionAttribute("contador", contador);
             //
-            String idSesion = ctx.req.getSession().getId();
+            String idSesion = ctx.req().getSession().getId();
             //
             ctx.html(String.format("<h3>Usted ha visitado %d veces - Puerto: %d - ID Sesion: %s </h3>", contador, app.port(), idSesion));
         });
