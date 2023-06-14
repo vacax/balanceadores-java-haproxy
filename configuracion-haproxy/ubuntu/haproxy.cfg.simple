@@ -37,13 +37,13 @@ defaults
 	errorfile 504 /etc/haproxy/errors/504.http
 
 listen aplicacion_web
-    bind *:80
-    mode http
-    stats enable
-    stats uri /stats
-    stats realm HAProxy\ Statistics
-    stats auth cda:cda
-    balance roundrobin
-    server app-01 localhost:7000 check
-    server app-02 localhost:7001 check
-    server app-03 localhost:7002 check
+bind *:80
+	mode http
+	stats enable
+	stats uri /stats
+	stats realm HAProxy\ Statistics
+	stats auth cda:cda
+	balance roundrobin
+	server app-01 localhost:7000 check
+	server app-02 localhost:7001 check
+	server app-03 localhost:7002 check
