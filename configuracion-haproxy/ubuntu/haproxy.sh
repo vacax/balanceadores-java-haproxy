@@ -19,3 +19,8 @@ sdk install java
 
 # Clonando el repositorio.
 git clone https://github.com/vacax/balanceadores-java-haproxy
+
+# Aplicando el permiso de ejecucion a los scripts
+chmod +x ~/balanceadores-java-haproxy/configuracion-haproxy/ubuntu/simple.sh
+chmod +x ~/balanceadores-java-haproxy/configuracion-haproxy/ubuntu/sesiones.sh
+chmod +x ~/balanceadores-java-haproxy/configuracion-haproxy/ubuntu/sesiones-centralizadas.sh

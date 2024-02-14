@@ -26,7 +26,9 @@ public class Main {
         });
 
         //Configurando el manejador de sesion.
-        //app.config.sessionHandler(()->Main.fileSessionHandler(app.server().server()));
+        /*app.updateConfig(javalinConfig -> {
+            javalinConfig.jetty.sessionHandler(() -> Main.fileSessionHandler(app.jettyServer().server().getServer()));
+        });*/
 
         //iniciando el servidor
         app.start(puerto);
