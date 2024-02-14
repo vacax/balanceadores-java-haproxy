@@ -6,6 +6,12 @@ La presentación de los temas tratados ir al siguiente enlace: https://bit.ly/2y
 wget  https://raw.githubusercontent.com/vacax/balanceadores-java-haproxy/master/configuracion-haproxy/ubuntu/haproxy.sh && chmod +x haproxy.sh && ./haproxy.sh
 ```
 
+Para no tener que reiniciar el terminar ejecutar la siguiente instrucción:
+
+```
+source "/home/ubuntu/.sdkman/bin/sdkman-init.sh"
+```
+
 ## HAProxy balanceador simple
 ```
 ~/balanceadores-java-haproxy/configuracion-haproxy/ubuntu/simple.sh
