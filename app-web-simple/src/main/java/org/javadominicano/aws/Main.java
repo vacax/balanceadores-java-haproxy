@@ -13,6 +13,8 @@ public class Main {
      * @param args
      */
     public static void main(String[] args) {
+        //Nombre de la aplicacion
+        String servidor = System.getenv().getOrDefault("NOMBRE_SERVIDOR", "App-web-Simple");
         //
         int puerto = 7000;
         if(args.length>=1){
@@ -39,7 +41,7 @@ public class Main {
 
         //respuesta simple
         app.get("/ejemplo-peticion", ctx -> {
-           ctx.html("<h3>Servidor escuchando en el puerto: "+app.port()+"</h3>");
+           ctx.html("<h3>Servidor escuchando en el puerto: "+app.port()+" - "+ servidor +"</h3>");
         });
 
         //Ejemplo de contador en sesiones.
@@ -53,7 +55,7 @@ public class Main {
             //
             String idSesion = ctx.req().getSession().getId();
             //
-            ctx.html(String.format("<h3>Usted ha visitado %d veces - Puerto: %d - ID Sesion: %s </h3>", contador, app.port(), idSesion));
+            ctx.html(String.format("<h3>Usted ha visitado %d veces - Puerto: %d - ID Sesion: %s , Servidor: %s</h3>", contador, app.port(), idSesion, servidor));
         });
 
     }
